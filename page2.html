@@ -1,74 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rose Day</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffd6e0, #ffc2d1);
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<meta charset="UTF-8">
+<title>Rose Day 😏</title>
 
-    .box {
-      background: white;
-      padding: 35px;
-      border-radius: 22px;
-      text-align: center;
-      width: 420px;
-      animation: fade 1s ease;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e0, #ffc2d1);
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    img {
-      width: 150px;
-      margin-bottom: 15px;
-      animation: float 2s ease-in-out infinite;
-    }
+  .box {
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    text-align: center;
+    width: 420px;
+    animation: fadeIn 1s ease;
+  }
 
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
+  .rose {
+    font-size: 60px;
+    display: inline-block;
+    animation: attitude 2s infinite;
+  }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 28px;
-      background: #e63946;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 15px;
-      cursor: pointer;
-    }
+  .eyes {
+    font-size: 26px;
+    display: block;
+    animation: eyeRoll 3s infinite;
+  }
 
-    @keyframes fade {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
+  .text {
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 70px;
+  }
 
-    @keyframes float {
-      0%,100% {transform: translateY(0);}
-      50% {transform: translateY(-6px);}
-    }
-  </style>
+  .drama {
+    font-size: 13px;
+    color: #777;
+    margin-top: 8px;
+  }
+
+  button {
+    margin-top: 22px;
+    padding: 12px 30px;
+    background: #e63946;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+  }
+
+  @keyframes attitude {
+    0%,100% {transform: rotate(0deg);}
+    50% {transform: rotate(-8deg);}
+  }
+
+  @keyframes eyeRoll {
+    0% {transform: translateX(0);}
+    30% {transform: translateX(-5px);}
+    60% {transform: translateX(5px);}
+    100% {transform: translateX(0);}
+  }
+</style>
 </head>
 
 <body>
-  <div class="box">
 
-    <!-- Cute sarcastic penguin (reliable PNG) -->
-    <img src="https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/618x618/1F60F.png" alt="sarcasm">
+<div class="box">
+  <div class="rose">🌹</div>
+  <div class="eyes">🙄</div>
 
-    <p>
-      Today is Rose Day 🌹<br><br>
-      I know you don’t remember…<br>
-      <b>but I do 😌</b>
-    </p>
+  <div class="text" id="typing"></div>
 
-    <button onclick="location.href='page3.html'">Continue</button>
-  </div>
+  <div class="drama">haan haan drama thoda zyada hai</div>
+
+  <button onclick="location.href='page3.html'">Continue</button>
+</div>
+
+<script>
+  const message = "Today is Rose Day 🌹\nI know you don’t remember…\nbut I do 😌";
+  let index = 0;
+  const speed = 45;
+  const target = document.getElementById("typing");
+
+  function typeText() {
+    if (index < message.length) {
+      target.innerHTML += message[index] === "\n" ? "<br>" : message[index];
+      index++;
+      setTimeout(typeText, speed);
+    }
+  }
+
+  typeText();
+</script>
+
 </body>
 </html>
