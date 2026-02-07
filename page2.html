@@ -18,13 +18,14 @@
       padding: 35px;
       border-radius: 22px;
       text-align: center;
-      width: 400px;
+      width: 420px;
       animation: fade 1s ease;
     }
 
     img {
-      width: 140px;
+      width: 150px;
       margin-bottom: 15px;
+      animation: float 2s ease-in-out infinite;
     }
 
     p {
@@ -47,14 +48,19 @@
       from {opacity:0; transform:translateY(20px);}
       to {opacity:1; transform:translateY(0);}
     }
+
+    @keyframes float {
+      0%,100% {transform: translateY(0);}
+      50% {transform: translateY(-6px);}
+    }
   </style>
 </head>
 
 <body>
   <div class="box">
 
-    <!-- Sarcastic cute sticker -->
-    <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="sarcasm">
+    <!-- Cute sarcastic penguin (reliable PNG) -->
+    <img src="https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/618x618/1F60F.png" alt="sarcasm">
 
     <p>
       Today is Rose Day 🌹<br><br>
